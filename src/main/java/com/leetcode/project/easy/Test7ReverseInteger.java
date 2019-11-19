@@ -68,4 +68,21 @@ public class Test7ReverseInteger {
         }
         return res;
     }
+
+    public int reverse4(int x) {
+        int res = 0;
+        while (0 != x){
+            int pop = x % 10;
+            x /= 10;
+            if  (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && pop >
+                    Integer.MAX_VALUE % 10)){
+                return 0;
+            }else if(res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && pop <
+                    Integer.MIN_VALUE % 10)){
+                return 0;
+            }
+            res = res * 10 + pop;
+        }
+        return res;
+    }
 }

@@ -1,5 +1,8 @@
 package com.leetcode.project;
 
+import com.leetcode.project.easy.Test13RomanToInteger;
+import com.leetcode.project.easy.Test9PalindromeNumber;
+
 /**
  * @title: leetCode
  * @author: Young
@@ -9,7 +12,7 @@ package com.leetcode.project;
  */
 public class HomeTest {
     public static void main(String[] args) {
-        System.out.println(Integer.MIN_VALUE);
-        System.out.println(Integer.MAX_VALUE);
+        Test13RomanToInteger t = new Test13RomanToInteger();
+        System.out.println(t.romanToInt("MCMXCIV"));
     }
 }
