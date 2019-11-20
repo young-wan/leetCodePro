@@ -25,7 +25,24 @@ public class Test14LongestCommonPrefix {
     */
 
     public String longestCommonPrefix(String[] strs) {
-
-        return "";
+        //  判空直接返回
+        if(strs == null || strs.length == 0){
+            return "";
+        }
+        int n = strs[0].length();
+        if (n == 0){
+            return "";
+        }
+        for (int i = 1; i < strs.length; i++) {
+            //  取最小长度
+            n = Math.min(n, strs[i].length());
+            for (int j = 0; j < n; j++) {
+                if (strs[i].charAt(j) != strs[0].charAt(j)) {
+                    n = j;
+                    break;
+                }
+            }
+        }
+        return strs[0].substring(0, n);
     }
 }
