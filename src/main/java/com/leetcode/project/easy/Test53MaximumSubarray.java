@@ -23,8 +23,32 @@ public class Test53MaximumSubarray {
     */
 
     public int maxSubArray(int[] nums) {
+        int max = 0;
+        int dp = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            //  dp为已经循环过的数据的和的最大值的存在
+            dp = Math.max(dp + nums[i], nums[i]);
+            max = Math.max(dp, max);
+        }
+        return max;
+    }
 
-
-        return 0;
+    public int maxSubArray2(int[] nums) {
+        //  最大值初始化为第一个数
+        int max = nums[0];
+        //  当前最大连续序列的和,初始化0
+        int sum = 0;
+        for (int n : nums) {
+            if (sum > 0) {
+                //  如果连续序列的和>0,有增益,则相加
+                sum += n;
+            } else {
+                //  如果连续序列<=0,无增益效果,则舍弃,从当前位置重新开始(将连续序列和更新为当前值)
+                sum = n;
+            }
+            //  每次比较当前最大值
+            max = Math.max(sum, max);
+        }
+        return max;
     }
 }

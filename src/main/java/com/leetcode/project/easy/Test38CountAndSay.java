@@ -29,9 +29,10 @@ public class Test38CountAndSay {
         if (n == 1) {
             return "1";
         }
-        StringBuilder sb = new StringBuilder();
         //  找到n-1的结果
         String prev = countAndSay(n - 1);
+
+        StringBuilder sb = new StringBuilder();
 
         //  数字重复次数
         int count;

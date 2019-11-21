@@ -6,6 +6,9 @@ import com.leetcode.project.easy.Test20ValidParentheses;
 import com.leetcode.project.easy.Test21MergeTwoSortedLists;
 import com.leetcode.project.easy.Test26RemoveDuplicatesfromSortedArray;
 import com.leetcode.project.easy.Test28ImplementstrStr;
+import com.leetcode.project.easy.Test38CountAndSay;
+import com.leetcode.project.easy.Test53MaximumSubarray;
+import com.leetcode.project.easy.Test66PlusOne;
 import com.leetcode.project.easy.Test9PalindromeNumber;
 
 /**
@@ -17,10 +20,9 @@ import com.leetcode.project.easy.Test9PalindromeNumber;
  */
 public class HomeTest {
     public static void main(String[] args) {
-        Test28ImplementstrStr t = new Test28ImplementstrStr();
+        Test38CountAndSay t = new Test38CountAndSay();
 
-        System.out.println(t.strStr("hello",
-                "ll"));
+        System.out.println(t.countAndSay(5));
 
     }
 }
