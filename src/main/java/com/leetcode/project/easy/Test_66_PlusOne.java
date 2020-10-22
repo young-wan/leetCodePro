@@ -1,5 +1,7 @@
 package com.leetcode.project.easy;
 
+import java.util.Arrays;
+
 /**
  * @title: leetCode
  * @author: Young
@@ -7,7 +9,7 @@ package com.leetcode.project.easy;
  * @date: Created at 2019/11/21 2019 16:00
  * {@link} https://leetcode.com/problems/plus-one/
  */
-public class Test66PlusOne {
+public class Test_66_PlusOne {
     /*
     Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
 
@@ -27,7 +29,13 @@ public class Test66PlusOne {
     Explanation: The array represents the integer 4321.
     */
 
-    public int[] plusOne(int[] digits) {
+    public static void main(String[] args) {
+        int[] res = plusOne(new int[]{4,3,2,9});
+        for (int re : res) {
+            System.out.printf("%d: ", re);
+        }
+    }
+    public static int[] plusOne(int[] digits) {
         for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] < 9) {
                 digits[i] += 1;

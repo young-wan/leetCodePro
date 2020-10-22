@@ -10,7 +10,7 @@ import org.springframework.util.StringUtils;
  * @date: Created at 2019/11/19 2019 14:07
  * {@link} https://leetcode.com/problems/reverse-integer/
  */
-public class Test7ReverseInteger {
+public class Test_7_ReverseInteger {
     /**
      * Given a 32-bit signed integer, reverse digits of an integer.
      * Example 1:
@@ -30,11 +30,6 @@ public class Test7ReverseInteger {
      * integer range: [−2^31,  2^31 − 1]. For the purpose of this problem, assume that your function
      * returns 0 when the reversed integer overflows.
      */
-    public int reverse1(int x) {
-        StringBuilder sb = new StringBuilder(String.valueOf(x));
-        return Integer.valueOf(String.valueOf(sb.reverse()));
-    }
-
     public int reverse2(int x) {
         //  环境只能存下32位,不可用long
         long res = 0;
@@ -71,14 +66,12 @@ public class Test7ReverseInteger {
 
     public int reverse4(int x) {
         int res = 0;
-        while (0 != x){
+        while (0 != x) {
             int pop = x % 10;
             x /= 10;
-            if  (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && pop >
-                    Integer.MAX_VALUE % 10)){
+            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && pop > Integer.MAX_VALUE % 10)) {
                 return 0;
-            }else if(res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && pop <
-                    Integer.MIN_VALUE % 10)){
+            }else if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && pop < Integer.MIN_VALUE % 10)) {
                 return 0;
             }
             res = res * 10 + pop;

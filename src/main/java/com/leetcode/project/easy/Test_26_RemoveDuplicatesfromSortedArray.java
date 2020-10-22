@@ -9,7 +9,11 @@ import java.util.Arrays;
  * @date: Created at 2019/11/20 2019 15:35
  * {@link} https://leetcode.com/problems/remove-duplicates-from-sorted-array/
  */
-public class Test26RemoveDuplicatesfromSortedArray {
+public class Test_26_RemoveDuplicatesfromSortedArray {
+    public static void main(String[] args) {
+//        System.out.println(removeDuplicates2(new int[]{1,1,2}));
+        System.out.println(removeDuplicates2(new int[]{0,0,1,1,1,2,2,3,3,4}));
+    }
     /*
     Given a sorted array nums, remove the duplicates in-place such that each element
     appear only once and return the new length.
@@ -57,7 +61,7 @@ public class Test26RemoveDuplicatesfromSortedArray {
         return res;
     }
 
-    public int removeDuplicates2(int[] nums) {
+    public static int removeDuplicates2(int[] nums) {
         int res = nums.length == 0 ? 0 : 1;
         for (int n : nums) {
             //  和上一个值不同,则赋值,因为是已排序数组,只需要关注后续数据,无需考虑已比较过的数据

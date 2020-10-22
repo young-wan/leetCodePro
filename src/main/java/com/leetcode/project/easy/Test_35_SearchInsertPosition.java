@@ -7,7 +7,7 @@ package com.leetcode.project.easy;
  * @date: Created at 2019/11/21 2019 9:37
  * {@link} https://leetcode.com/problems/search-insert-position/
  */
-public class Test35SearchInsertPosition {
+public class Test_35_SearchInsertPosition {
     /*
     Given a sorted array and a target value, return the index if the target is found.
     If not, return the index where it would be if it were inserted in order.
@@ -75,6 +75,18 @@ public class Test35SearchInsertPosition {
         }
         return low;
 
+    }
+
+    public static void main(String[] args) {
+        System.out.println(test(new int[]{1, 3, 5, 6}, 7));
+    }
+    public static int test(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            if (target <= nums[i]) {
+                return i;
+            }
+        }
+        return nums.length;
     }
 
 }

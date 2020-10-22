@@ -1,5 +1,6 @@
 package com.leetcode.project.easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -11,7 +12,13 @@ import java.util.Objects;
  * @date: Created at 2019/11/19 2019 11:43
  * {@link} https://leetcode.com/problems/two-sum/
  */
-public class Test1TwoSum {
+public class Test_1_TwoSum {
+    public static void main(String[] args) {
+        int[] res = test(new int[]{2, 7, 11, 15}, 17);
+        System.out.println(res[0]);
+        System.out.println(res[1]);
+    }
+
     /**
      * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
      * You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -21,17 +28,17 @@ public class Test1TwoSum {
      * return [0, 1].
      */
 
-    public int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap();
         int[] res = new int[2];
         for (int i = 0; i < nums.length; i++) {
             Integer diff = target - nums[i];
-            if (Objects.isNull(map.get(diff))) {
-                map.put(nums[i], i);
-            } else {
+            if (map.containsKey(diff)) {
                 res[0] = map.get(diff);
                 res[1] = i;
                 return res;
+            } else {
+                map.put(nums[i], i);
             }
         }
         return res;
@@ -49,4 +56,15 @@ public class Test1TwoSum {
      空间复杂度：O(n)，
      所需的额外空间取决于哈希表中存储的元素数量，该表最多需要存储 n 个元素。
      */
+
+    public static int[] test(int[] sum, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < sum.length; i++) {
+            if (map.containsKey(target - sum[i])) {
+                return new int[]{map.get(target - sum[i]), i};
+            }
+            map.put(sum[i], i);
+        }
+        return new int[0];
+    }
 }

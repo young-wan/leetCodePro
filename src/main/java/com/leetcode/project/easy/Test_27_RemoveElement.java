@@ -7,7 +7,7 @@ package com.leetcode.project.easy;
  * @date: Created at 2019/11/20 2019 16:28
  * {@link} https://leetcode.com/problems/remove-element/
  */
-public class Test27RemoveElement {
+public class Test_27_RemoveElement {
     /*
     Given an array nums and a value val, remove all instances of that value in-place and return the new length.
     Do not allocate extra space for another array, you must do this by modifying the input

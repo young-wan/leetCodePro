@@ -11,7 +11,7 @@ import java.util.Stack;
  * @date: Created at 2019/11/20 2019 14:24
  * {@link} https://leetcode.com/problems/valid-parentheses/
  */
-public class Test20ValidParentheses {
+public class Test_20_ValidParentheses {
     /*
     Given a string containing just the characters '(', ')', '{', '}', '[' and ']',
     determine if the input string is valid.
@@ -92,4 +92,5 @@ public class Test20ValidParentheses {
         //  若正确匹配,则最后的Stack应是空的;如果stack有数据,则说明没有完全pop;
         return st.empty();
     }
+
 }

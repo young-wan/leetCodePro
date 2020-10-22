@@ -7,7 +7,7 @@ package com.leetcode.project.easy;
  * @date: Created at 2019/11/21 2019 16:00
  * {@link} https://leetcode.com/problems/length-of-last-word/
  */
-public class Test58LengthofLastWord {
+public class Test_58_LengthofLastWord {
     /*
     Given a string s consists of upper/lower-case alphabets and empty space characters ' ',
     return the length of last word in the string.
@@ -21,7 +21,10 @@ public class Test58LengthofLastWord {
     Output: 5 "b   a    "
     */
 
-    public int lengthOfLastWord(String s) {
+    public static void main(String[] args) {
+        System.out.println(lengthOfLastWord("Hello Wor"));
+    }
+    public static int lengthOfLastWord(String s) {
         if (s == null || s.length() == 0) {
             return 0;
         }

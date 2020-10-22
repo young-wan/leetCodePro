@@ -6,7 +6,7 @@ package com.leetcode.project.easy;
  * @desc leetcode
  * {@link} https://leetcode.com/problems/palindrome-number/
  **/
-public class Test9PalindromeNumber {
+public class Test_9_PalindromeNumber {
    /*
     Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
     Example 1:
@@ -26,17 +26,20 @@ public class Test9PalindromeNumber {
     Coud you solve it without converting the integer to a string?
     */
 
-    public boolean isPalindrome(int x) {
+    public static boolean isPalindrome(int x) {
         if (x < 0){
             return false;
         }
-        int res = 0;
+        long res = 0;
         int temp = x;
         while (0 != temp) {
-            int pop = temp % 10;
+            res = res * 10 + temp % 10;
             temp /= 10;
-            res = res * 10 + pop;
         }
         return res == x;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(10));
     }
 }

@@ -9,7 +9,15 @@ import java.util.Map;
  * @desc leetcode
  * {@link} https://leetcode.com/problems/roman-to-integer/
  **/
-public class Test13RomanToInteger {
+public class Test_13_RomanToInteger {
+    public static void main(String[] args) {
+        System.out.println(test("III"));
+        System.out.println(test("IV"));
+        System.out.println(test("IX"));
+        System.out.println(test("LVIII"));
+        System.out.println(test("MCMXCIV"));
+    }
+
     /*
     Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
@@ -55,8 +63,22 @@ public class Test13RomanToInteger {
      Output: 1994
      Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
      */
+    public static int test(String s) {
+        int res = 0, prev = 0, cur = 0;
+        for (int i = 0; i < s.length(); i++) {
+            cur = digit(s.charAt(i));
+            if (cur > prev) {
+                res -= prev;
+                res += cur - prev;
+            } else {
+                res += cur;
+            }
+            prev = cur;
+        }
+        return res;
+    }
 
-    public int romanToInt(String s) {
+    public static int romanToInt(String s) {
         Map<String, Integer> map = new HashMap<>();
         map.put("I", 1);
         map.put("V", 5);
@@ -94,7 +116,7 @@ public class Test13RomanToInteger {
         return res;
     }
 
-    private int digit(char c) {
+    private static int digit(char c) {
         switch (c) {
             case 'I':
                 return 1;

@@ -7,7 +7,10 @@ package com.leetcode.project.easy;
  * @date: Created at 2019/11/20 2019 16:48
  * {@link} https://leetcode.com/problems/implement-strstr/
  */
-public class Test28ImplementstrStr {
+public class Test_28_ImplementStr {
+    public static void main(String[] args) {
+        System.out.println(strStr2("aaaaa", "bba"));
+    }
    /*
    Implement strStr().
    Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
@@ -40,7 +43,7 @@ public class Test28ImplementstrStr {
         return -1;
     }
 
-    public int strStr2(String haystack, String needle) {
+    public static int strStr2(String haystack, String needle) {
         if (needle.equals("")) {
             return 0;
         }
@@ -53,5 +56,4 @@ public class Test28ImplementstrStr {
         }
         return -1;
     }
-
 }
