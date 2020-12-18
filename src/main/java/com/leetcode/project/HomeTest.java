@@ -1,6 +1,6 @@
 package com.leetcode.project;
 
-import com.leetcode.project.easy.Test38CountAndSay;
+import com.leetcode.project.easy.Test_38_CountAndSay;
 
 /**
  * @title: leetCode
@@ -11,7 +11,7 @@ import com.leetcode.project.easy.Test38CountAndSay;
  */
 public class HomeTest {
     public static void main(String[] args) {
-        Test38CountAndSay t = new Test38CountAndSay();
+        Test_38_CountAndSay t = new Test_38_CountAndSay();
 
         System.out.println(t.countAndSay(5));
 

@@ -7,7 +7,11 @@ package com.leetcode.project.easy;
  * @date: Created at 2019/11/21 2019 10:30
  * {@link} https://leetcode.com/problems/count-and-say/
  */
-public class Test38CountAndSay {
+public class Test_38_CountAndSay {
+    public static void main(String[] args) {
+        System.out.println(countAndSay(6));
+    }
+
    /*
    The count-and-say sequence is the sequence of integers with the first five terms as following:
 
@@ -25,7 +29,7 @@ public class Test38CountAndSay {
     Note: Each term of the sequence of integers will be represented as a string.
     */
 
-    public String countAndSay(int n) {
+    public static String countAndSay(int n) {
         if (n == 1) {
             return "1";
         }
