@@ -33,7 +33,6 @@ public class BucketSort {
     }
 
     private static int[] bucketSort(int[] arr) {
-
         int len = arr.length;
 
         int minValue = arr[0];

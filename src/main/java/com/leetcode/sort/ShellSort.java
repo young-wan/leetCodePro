@@ -23,7 +23,7 @@ public class ShellSort {
      */
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(shellSort(IntegerUtils.ints)));
+        System.out.println(Arrays.toString(shell2(IntegerUtils.ints)));
     }
 
 
@@ -44,6 +44,22 @@ public class ShellSort {
                         arr[k] = arr[k - gap];
                         arr[k - gap] = tmp;
                         // 往前递减比较
+                        k -= gap;
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+
+    private static int[] shell2(int[] arr) {
+        int len = arr.length, gap = arr.length;
+        while ((gap /= 2) > 0) {
+            for (int i = 0; i < gap; i++) {
+                for (int j = i + gap; j < len; j += gap) {
+                    int k = j;
+                    while (k - gap >= 0 && arr[k] < arr[k - gap]) {
+                        IntegerUtils.swap(arr, k - gap, k);
                         k -= gap;
                     }
                 }

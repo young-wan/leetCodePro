@@ -21,7 +21,7 @@ public class QuickSort {
      */
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(quickSort(IntegerUtils.ints, 0, IntegerUtils.ints.length - 1)));
+        System.out.println(Arrays.toString(quick3(IntegerUtils.ints, 0, IntegerUtils.ints.length - 1)));
 
         System.out.println("--------------------");
 
@@ -29,12 +29,6 @@ public class QuickSort {
     }
 
     private static int[] quickSort(int[] arr, int left, int right) {
-        /*
-        1. 从数列中挑出一个元素，称为 “基准”（pivot）;
-        2. 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；
-        3. 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；
-         */
-
         // 1. 从数列中挑出一个元素，称为 “基准”（pivot）;
         // 注意：此时，可以理解为当前下表位的数据已经被取出来了，当前位是空的了，即挖坑填入
         int pivot = arr[left];
@@ -71,8 +65,6 @@ public class QuickSort {
         if (j + 1 < right) {
             arr = quickSort(arr, j + 1, right);
         }
-
-
         return arr;
     }
 
@@ -121,5 +113,44 @@ public class QuickSort {
         }
         System.out.println("--------------------------\n");
     }
+
+    private static int[] quick3(int[] arr, int low, int high) {
+        int pivot = arr[low];
+        int l = low, h = high;
+
+        while (l < h) {
+            while (l < h && arr[h] >= pivot) {
+                h--;
+            }
+            if (l < h) {
+                arr[l] = arr[h];
+                l++;
+            }
+
+            while (l < h && arr[l] <= pivot) {
+                l++;
+            }
+
+            if (l < h) {
+                arr[h] = arr[l];
+                h--;
+            }
+        }
+
+        arr[l] = pivot;
+
+        if (l - 1 > low) {
+            quick3(arr, low, l - 1);
+        }
+
+        if (h + 1 < high) {
+            quick3(arr, h + 1, high);
+        }
+
+
+        return arr;
+
+    }
+
 
 }

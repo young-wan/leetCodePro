@@ -61,4 +61,11 @@ public class CountingSort {
         return max;
     }
 
+    private static int[] counting2(int[] arr) {
+
+
+
+        return arr;
+    }
+
 }

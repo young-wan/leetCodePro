@@ -38,7 +38,6 @@ public class MergeSort {
 
 
     private static int[] mergeSort(int[] arr, int low, int high) {
-        System.out.println("low : " + low + "  high: " + high);
         if (low >= high) {
             return new int[]{arr[low]};
         }
@@ -69,14 +68,12 @@ public class MergeSort {
         while (rightArr.length > j) {
             results[k++] = rightArr[j++];
         }
-
         return results;
-
     }
 
     private static int[] merge2(int[] arr, int low, int high) {
         /**
-         *  1. 申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；
+         *     1. 申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；
          *     2. 设定两个指针，最初位置分别为两个已经排序序列的起始位置；
          *     3. 比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；
          *     4. 重复步骤 3 直到某一指针达到序列尾；
@@ -86,21 +83,20 @@ public class MergeSort {
         if (low >= high) {
             return new int[]{arr[low]};
         }
-
         int mid = low + (high - low) / 2;
-
         int[] leftArr = merge2(arr, low, mid);
         int[] rightArr = merge2(arr, mid + 1, high);
-
         int[] results = new int[leftArr.length + rightArr.length];
 
         int i = 0, j = 0, k = 0;
         while (leftArr.length > i && rightArr.length > j) {
             results[k++] = leftArr[i] < rightArr[j] ? leftArr[i++] : rightArr[j++];
         }
+
         while (leftArr.length > i) {
             results[k++] = leftArr[i++];
         }
+
         while (rightArr.length > j) {
             results[k++] = rightArr[j++];
         }

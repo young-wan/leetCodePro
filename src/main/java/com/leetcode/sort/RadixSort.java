@@ -37,7 +37,7 @@ public class RadixSort {
         // 构造radix数组
         int[] radix;
 
-        // 遍历pos次,每次取当前位取模10的值
+        // 遍历pos次,每次取当前位的值
         for (int i = 1; i <= pos; i++) {
             radix = new int[10];
             for (int j = 0; j < arr.length; j++) {

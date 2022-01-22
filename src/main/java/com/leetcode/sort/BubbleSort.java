@@ -21,19 +21,17 @@ public class BubbleSort {
      */
 
     public static void main(String[] args) {
-//        System.out.println(Arrays.toString(bubbleSort(IntegerUtils.ints)));
         System.out.println(Arrays.toString(bubble2(IntegerUtils.ints)));
     }
 
     private static int[] bubbleSort(int[] arr) {
-        System.out.println(Arrays.toString(arr));
-        System.out.println("=====================");
         int temp;
         for (int i = 0; i < arr.length; i++) {
             // 设定一个标记，若为true，则表示此次循环没有进行交换，也就是待排序列已经有序，排序已经完成。
             boolean flag = true;
-            for (int j = 0; j < arr.length - 1; j++) {
-                // 1. 比较相邻的元素。如果第一个比第二个大，就交换它们两个；
+            // 1. 比较相邻的元素。如果第一个比第二个大，就交换它们两个；
+            // 此处，仅遍历最大值之前的元素
+            for (int j = 0; j < arr.length - 1 - i; j++) {
                 // 2. 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这样在最后的元素应该会是最大的数；
                 if (arr[j] > arr[j + 1]) {
                     temp = arr[j];
@@ -45,7 +43,6 @@ public class BubbleSort {
             if (flag) {
                 break;
             }
-            System.out.println(Arrays.toString(arr));
         }
         return arr;
     }
@@ -58,13 +55,10 @@ public class BubbleSort {
          *     4. 重复步骤1~3，直到排序完成。
          */
 
-        int tmp;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length - 1; j++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    tmp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = tmp;
+                    IntegerUtils.swap(arr, j, j + 1);
                 }
             }
         }

@@ -29,22 +29,23 @@ public class SelectionSort {
     }
 
     private static int[] selectionSort(int[] arr) {
-        System.out.println(Arrays.toString(arr));
-        System.out.println("=====================");
         int min;
         for (int i = 0; i < arr.length; i++) {
+            // 1. 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置
             min = i;
+            // 2. 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[min] > arr[j]) {
+                    // 记录目前能找到的最小值元素的下标
                     min = j;
                 }
             }
+            // 将找到的最小值和i位置所在的值进行交换
             if (min != i) {
                 int tmp = arr[i];
                 arr[i] = arr[min];
                 arr[min] = tmp;
             }
-            System.out.println(Arrays.toString(arr));
         }
         return arr;
     }
@@ -57,18 +58,16 @@ public class SelectionSort {
         3. 重复第二步，直到所有元素均排序完毕。
          */
 
-        int min, tmp;
+        int minIndex;
         for (int i = 0; i < arr.length; i++) {
-            min = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[min] > arr[j]) {
-                    min = j;
+            minIndex = i;
+            for (int j = i; j < arr.length; j++) {
+                if (arr[minIndex] > arr[j]) {
+                    minIndex = j;
                 }
             }
-            if (min != i) {
-                tmp = arr[i];
-                arr[i] = arr[min];
-                arr[min] = tmp;
+            if (minIndex != i) {
+                IntegerUtils.swap(arr, minIndex, i);
             }
         }
 

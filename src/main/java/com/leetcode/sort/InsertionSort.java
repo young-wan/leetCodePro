@@ -30,10 +30,7 @@ public class InsertionSort {
     }
 
     private static int[] insertionSort(int[] arr) {
-        System.out.println(Arrays.toString(arr));
-        System.out.println("=====================");
         int tmp;
-
         // 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的
         //  1. 从第一个元素开始，该元素可以认为已经被排序；
         for (int i = 1; i < arr.length; i++) {
@@ -55,8 +52,6 @@ public class InsertionSort {
                 arr[j] = tmp;
             }
         }
-
-
         return arr;
     }
 
@@ -71,10 +66,12 @@ public class InsertionSort {
         6. 重复步骤2~5。
          */
 
+
         int tmp;
+
         for (int i = 1; i < arr.length; i++) {
-            int j = i;
             tmp = arr[i];
+            int j = i;
             while (j > 0 && tmp < arr[j - 1]) {
                 arr[j] = arr[j - 1];
                 j--;
@@ -83,6 +80,7 @@ public class InsertionSort {
                 arr[j] = tmp;
             }
         }
+
         return arr;
     }
 }

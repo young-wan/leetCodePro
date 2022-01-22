@@ -30,8 +30,8 @@ public class HeapSort {
      */
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(heapSort(IntegerUtils.ints)));
-        System.out.println(Arrays.toString(heap2(IntegerUtils.ints)));
+//        System.out.println(Arrays.toString(heapSort(IntegerUtils.ints)));
+        System.out.println(Arrays.toString(heap3(IntegerUtils.ints)));
 
     }
 
@@ -51,7 +51,6 @@ public class HeapSort {
             // 重新对堆进行调整
             heapify(arr, 0, i);
         }
-
         return arr;
     }
 
@@ -81,7 +80,6 @@ public class HeapSort {
             large = right;
         }
 
-        // 优先交换右节点，所以右节点在左节点后进行比较
         // 如果最大值不是当前非叶子节点的值，那么就把当前节点和最大值的子节点值互换
         if (large != i) {
             // 交换数据
@@ -147,4 +145,40 @@ public class HeapSort {
         }
     }
 
+
+    public static int[] heap3(int[] arr) {
+        // 构建大顶堆
+        int len = arr.length;
+
+        for (int i = len / 2 - 1; i >= 0 ; i--) {
+            heapy3(arr, i, len);
+        }
+
+        for (int i = len - 1; i >= 0; i--) {
+            swap(arr, 0, i);
+            heapy3(arr, 0, i);
+        }
+
+        return arr;
+    }
+
+    private static void heapy3(int[] arr, int i, int len) {
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        int large = i;
+
+        if (left < len && arr[left] > arr[large]) {
+            large = left;
+        }
+
+        if (right < len && arr[right] > arr[large]) {
+            large = right;
+        }
+
+        if (large != i) {
+            swap(arr, i, large);
+            heapy3(arr, large, len);
+        }
+
+    }
 }
